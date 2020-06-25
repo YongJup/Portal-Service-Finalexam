@@ -4,23 +4,21 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.hibernate.annotations.DynamicInsert;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity(name = "todo")
+@Entity(name = "userinfo")
 @Data
-@DynamicInsert
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class Todo {
+public class User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
-    private String task;
-    private Boolean is_done;
+    private String name;
+    private String password;
 }
