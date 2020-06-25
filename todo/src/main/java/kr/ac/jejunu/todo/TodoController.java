@@ -1,10 +1,7 @@
 package kr.ac.jejunu.todo;
 
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -22,4 +19,15 @@ public class TodoController {
     public Todo create(@RequestBody Todo todo){
         return todoDao.save(todo);
     }
+
+    @PutMapping("/save")
+    public Todo modify(@RequestBody Todo todo){
+        return todoDao.save(todo);
+    }
+
+    @DeleteMapping("/delete/{id}")
+    public void delete(@PathVariable("id") Integer id){
+        todoDao.delete(todoDao.findById(id).get());
+    }
+
 }
